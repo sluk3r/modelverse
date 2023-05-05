@@ -129,3 +129,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.addEventListener('click', toggleQuestion);
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const textarea = document.getElementById('input');
+
+  textarea.addEventListener('keydown', function(event) {
+    // 检查是否按下了Ctrl+回车组合键
+    if (event.ctrlKey && event.key === 'Enter') {
+      // 阻止默认事件（如换行）
+      event.preventDefault();
+      // 提交表单
+      submitQuestion();
+    }
+  });
+});
